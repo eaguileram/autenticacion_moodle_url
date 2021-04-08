@@ -10,7 +10,7 @@ curl "https://dominio_plataforma_moodle/webservice/rest/server.php?wstoken=10101
 El Token permite conversar el Sistema Externo con la plataforma Moodle, el usuario debe existir en Moodle.
 #Referencia a las variables GET
 La autenticación vía Moodle vía URL provee las siguientes variables a configurar:
-|Nombre variable| Descripción| Valor
-| ---            | ---                                                  |              |
-| wstoken        | esto indica el token de autenticación                | alfanumérico |
-| user[username] | esto indica el nombre de usuario existente en Moodle | alfanumérico |
+| Nombre variable | Descripción                                          | Valor        |
+| ---             | ---                                                  | ---          |
+| wstoken         | esto indica el token de autenticación                | alfanumérico |
+| user[username]  | esto indica el nombre de usuario existente en Moodle | alfanumérico |
