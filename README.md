@@ -35,7 +35,7 @@ Moodle retornará una respuesta en esquema JSON con una URL y hash MD5
 | Nombre variable | Descripción                    | Valor |
 | ---             | ---                            | ---   |
 | key             | Hash MD5 proveniente de Moodle | MD5   |
-- la Key tiene una duración de 5 minutos, luego de eso queda obsoleta.
+- la key tiene una duración de 5 minutos, luego de eso expira.
 ### Concatenar:
 Se debe extraer todo el loginurl y concatenar las siguientes variables al final de la misma:
 ```
