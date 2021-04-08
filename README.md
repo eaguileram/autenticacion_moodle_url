@@ -1,4 +1,4 @@
-# Integración Autenticación desde Sistema Externo hacia Moodle vía URL
+# Autenticación desde Sistema Externo hacia Moodle vía URL
 Es un mecanismo de autenticación hacia una plataforma Moodle desde un Sistema Externo.
 # Requerimientos
 - Dirección IP Sistema Externo
