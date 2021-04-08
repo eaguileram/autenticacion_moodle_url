@@ -1,8 +1,13 @@
-# Autenticación desde Sistema Externo hacia Moodle vía URL
+# Autenticación hacia Moodle desde Sistema Externo usando URL
 Es un mecanismo de autenticación hacia una plataforma Moodle desde un Sistema Externo.
 # Requerimientos
 - Dirección IP Sistema Externo
+- Token
+- URL Plataforma Moodle
+- Usuario existente en Moodle
+- cURL
 # Uso
+Autenticar a un alumno en Moodle desde un Sistema Externo tiene varios mecanismos, en este caso usaremos la conexión vía loginurl.
 ### Uso:
 ### Petición:
 Usando la herramienta de linea de comandos cURL se realiza la petición
