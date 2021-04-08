@@ -36,6 +36,7 @@ Se debe extraer todo el loginurl y concatenar las siguientes variables al final 
 &wantsurl=DOMINIO_MOODLE/course/view.php?id=IDCURSO
 ```
 | Nombre variable | Descripción                                              | Valor   |
+| ---             | ---                                                      | ---     |
 | wantsurl        | Dominio dónde está implementada la plataforma            | URL     |
 | id              | Identificador del curso dónde está matriculado el alumno | Integer |
 - id es proporcionado por PanalTech
