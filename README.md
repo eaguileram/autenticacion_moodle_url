@@ -1,4 +1,4 @@
-# Autenticación hacia Moodle desde Sistema Externo usando URL
+# Autenticación hacia Moodle desde Sistema Externo usando LoginURL
 Es un mecanismo de autenticación hacia una plataforma Moodle desde un Sistema Externo.
 # Requerimientos
 - Dirección IP Sistema Externo
