@@ -17,7 +17,7 @@ curl "https://DOMINIO_MOODLE/webservice/rest/server.php?wstoken=1010101010101001
 El Token permite conversar el Sistema Externo con la plataforma Moodle.
 - El usuario debe existir en Moodle.
 # Referencia a las variables GET
-La autenticación vía Moodle vía URL provee las siguientes variables a configurar:
+La autenticación hacia Moodle vía URL provee las siguientes variables a configurar:
 | Nombre variable | Descripción                                          | Valor        |
 | ---             | ---                                                  | ---          |
 | DOMINIO_MOODLE  | Dominio dónde está implementada la plataforma        | URL          |
@@ -28,13 +28,14 @@ La autenticación vía Moodle vía URL provee las siguientes variables a configu
 - El usuario es creado por PanalTech
 
 ### Respuesta:
-Moodle retornará respuesta en esquema JSON con una URL y hash MD5
+Moodle retornará una respuesta en esquema JSON con una URL y hash MD5
 ```
 {"loginurl":"https:\/\/DOMINIO_MOODLE\/auth\/userkey\/login.php?key=MD5HASH"}
 ```
 | Nombre variable | Descripción                    | Valor |
 | ---             | ---                            | ---   |
 | key             | Hash MD5 proveniente de Moodle | MD5   |
+- la Key tiene una duración de 5 minutos, luego de eso queda obsoleta.
 ### Concatenar:
 Se debe extraer todo el loginurl y concatenar las siguientes variables al final de la misma:
 ```
