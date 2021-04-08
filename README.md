@@ -54,5 +54,7 @@ En caso exista un fallo en la ejecución del programa, se retornará el siguient
 | message         | Explicación del error                            | String |
 ## Creado por Servicios Informáticos PanalTech
 Esta documentación fue desarrollada por PanalTech SpA.
+
 https://www.panaltech.cl
+
 ![Screenshot](panaltech.png)
