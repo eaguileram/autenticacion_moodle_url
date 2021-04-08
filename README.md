@@ -7,7 +7,7 @@ Es un mecanismo de autenticación hacia una plataforma Moodle desde un Sistema E
 - Usuario existente en Moodle
 - cURL
 # Uso
-Autenticar a un alumno en Moodle desde un Sistema Externo tiene varios mecanismos, en este caso usaremos la conexión vía loginurl.
+Autenticar a un alumno en Moodle desde un Sistema Externo tiene varios mecanismos, en este caso usaremos la integración vía loginurl.
 ### Uso:
 ### Petición:
 Usando la herramienta de linea de comandos cURL se realiza la petición
