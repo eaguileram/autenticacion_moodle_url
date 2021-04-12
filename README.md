@@ -1,18 +1,17 @@
 # Autenticación hacia Moodle desde Sistema Externo usando LoginURL
 Es un mecanismo de autenticación hacia una plataforma Moodle desde un Sistema Externo.
 # Requerimientos
-- Dirección IP Sistema Externo
-- Token
-- URL Plataforma Moodle
-- Usuario existente en Moodle
-- cURL
+- Informar Dirección IP para habilitación
+- Token de Acceso provisto por PanalTech
+- URL Plataforma Aula Virtual
+- Usuarios existentes
 # Uso
 Autenticar a un alumno en Moodle desde un Sistema Externo tiene varios mecanismos, en este caso usaremos la integración vía loginurl.
 ### Uso:
 ### Petición:
-Usando la herramienta de linea de comandos cURL se realiza la petición
+Se debe realizar una petición POST a la siguiente URL
 ```
-curl "https://DOMINIO_MOODLE/webservice/rest/server.php?wstoken=10101010101010010101&wsfunction=auth_userkey_request_login_url&moodlewsrestformat=json&user[username]=nombre_usuario"
+https://DOMINIO_MOODLE/webservice/rest/server.php?wstoken=10101010101010010101&wsfunction=auth_userkey_request_login_url&moodlewsrestformat=json&user[username]=nombre_usuario
 ```
 El Token permite conversar el Sistema Externo con la plataforma Moodle.
 - El usuario debe existir en Moodle.
@@ -20,7 +19,7 @@ El Token permite conversar el Sistema Externo con la plataforma Moodle.
 La autenticación hacia Moodle vía URL provee las siguientes variables a configurar:
 | Nombre variable | Descripción                                          | Valor        |
 | ---             | ---                                                  | ---          |
-| DOMINIO_MOODLE  | Dominio dónde está implementada la plataforma        | URL          |
+| DOMINIO_AULA    | Dominio dónde está implementada la plataforma        | URL          |
 | wstoken         | esto indica el token de autenticación                | alfanumérico |
 | user[username]  | esto indica el nombre de usuario existente en Moodle | alfanumérico |
 - El dominio es proporcionado por PanalTech
@@ -30,22 +29,34 @@ La autenticación hacia Moodle vía URL provee las siguientes variables a config
 ### Respuesta:
 Moodle retornará una respuesta en esquema JSON con una URL y hash MD5
 ```
-{"loginurl":"https:\/\/DOMINIO_MOODLE\/auth\/userkey\/login.php?key=MD5HASH"}
+{"loginurl":"https:\/\/DOMINIO_AULA\/auth\/userkey\/login.php?key=HASH_ACCESO"}
 ```
-| Nombre variable | Descripción                    | Valor |
-| ---             | ---                            | ---   |
-| key             | Hash MD5 proveniente de Moodle | MD5   |
-- la key tiene una duración de 5 minutos, luego de eso expira.
-### Concatenar:
-Se debe extraer todo el loginurl y concatenar las siguientes variables al final de la misma:
+| Nombre variable | Descripción                    | Valor  |
+| ---             | ---                            | ---    |
+| key             | Hash de acceso                 | String |
+- El Hash de acceso tiene una duración de 5 minutos, luego de eso expira y debe solicitarse nuevamente.
+### Armar URL para redirigir usuario:
+Se debe concatenar el "loginurl" de la respuesta a la petición anterior con la siguiente variable al final de la misma:
 ```
-&wantsurl=DOMINIO_MOODLE/course/view.php?id=IDCURSO
+&wantsurl=URLREQUERIDA
 ```
 | Nombre variable | Descripción                                              | Valor   |
 | ---             | ---                                                      | ---     |
-| wantsurl        | Dominio dónde está implementada la plataforma            | URL     |
-| id              | Identificador del curso dónde está matriculado el alumno | Integer |
-- id es proporcionado por PanalTech
+| wantsurl        | URL a la que se desea acceder                            | URL     |
+
+- URL de curso tiene el formato:
+```
+https://DOMINIO_AULA/course/view.php?id=IDCURSO
+```
+- DOMINIO_AULA es el dominio de la plataforma virtual a la que se accede
+- IDCURSO es proporcionado por PanalTech
+
+Quedando como sigue:
+
+```
+https://DOMINIO_AULA/auth/userkey/login.php?key=HASH_ACCESO&wantsurl=https://DOMINIO_AULA/course/view.php?id=IDCURSO
+```
+
 ### Redirigir
 Con el loginurl concatenado se debe redirigir el alumno hacia la plataforma Moodle.
 ## Control de flujo y manejo de errores
