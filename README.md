@@ -59,7 +59,7 @@ En caso exista un fallo en la ejecución del programa, se retornará el siguient
 | exception       | Imprevisto ocurrido en la ejecución del programa | String |
 | errorcode       | Identificación de la excepción detectada         | String |
 | message         | Explicación del error                            | String |
-## Creado por Servicios Informáticos PanalTech
+## Creado por PanalTech SpA
 Esta documentación fue desarrollada por PanalTech SpA.
 
 https://www.panaltech.cl
