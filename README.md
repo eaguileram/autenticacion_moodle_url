@@ -11,7 +11,7 @@ Autenticar a un alumno en Moodle desde un Sistema Externo tiene varios mecanismo
 ### Petición:
 Se debe realizar una petición POST a la siguiente URL
 ```
-https://DOMINIO_MOODLE/webservice/rest/server.php?wstoken=10101010101010010101&wsfunction=auth_userkey_request_login_url&moodlewsrestformat=json&user[username]=nombre_usuario
+https://DOMINIO_AULA/webservice/rest/server.php?wstoken=10101010101010010101&wsfunction=auth_userkey_request_login_url&moodlewsrestformat=json&user[username]=nombre_usuario
 ```
 El Token permite conversar el Sistema Externo con la plataforma Moodle.
 - El usuario debe existir en Moodle.
