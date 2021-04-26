@@ -9,7 +9,7 @@ Es un mecanismo de autenticación hacia una plataforma Moodle desde un Sistema E
 Autenticar a un alumno en Moodle desde un Sistema Externo tiene varios mecanismos, en este caso usaremos la integración vía loginurl.
 ### Uso:
 ### Petición:
-Se debe realizar una petición POST a la siguiente URL
+Se debe realizar una petición GET a la siguiente URL
 ```
 https://DOMINIO_AULA/webservice/rest/server.php?wstoken=TOKEN&wsfunction=auth_userkey_request_login_url&moodlewsrestformat=json&user[username]=user
 ```
